@@ -114,3 +114,46 @@ Before you submit your solution, you need to save your progress with git.
 * Add your changes to the staging area by executing git add .
 * Create a commit by executing git commit -m "Your commit message"
 * Push your commits to GitHub by executing git push origin main
+
+# Many-to-Many Book Contracts
+
+This project models a **many-to-many relationship** between `Author` and `Book` using an intermediary class `Contract`.
+
+---
+
+## Classes
+
+### Author
+- Attribute: `name` (string)  
+- Class attribute: `Author.all`  
+- Methods:  
+  - `contracts()` → returns all contracts for this author  
+  - `books()` → returns all books by this author  
+  - `sign_contract(book, date, royalties)` → creates and returns a new contract  
+  - `total_royalties()` → sums all royalties from this author's contracts  
+
+### Book
+- Attribute: `title` (string)  
+- Class attribute: `Book.all`  
+- Methods:  
+  - `contracts()` → returns all contracts for this book  
+  - `authors()` → returns all authors of this book  
+
+### Contract
+- Attributes:  
+  - `author` (Author instance)  
+  - `book` (Book instance)  
+  - `date` (string)  
+  - `royalties` (integer)  
+- Class attribute: `Contract.all`  
+- Method:  
+  - `contracts_by_date(date)` → returns all contracts with the same date  
+
+---
+
+## Tests Passed
+
+All automated tests were successfully passed.  
+The screenshot below shows the test results:
+
+![tests passed](./tests_passed.png)
